@@ -382,7 +382,14 @@ function renderSectionDetail(section) {
 
   const isRead = readSectionIds.includes(section.id);
   const buttonText = isRead ? "已读" : "标记为已读";
-  const keywordsText = section.jpKeywords.join("、");
+  const sectionTerms = allTerms.filter(function (term) {
+    return term.sectionId === section.id;
+  });
+  const keywordsText = sectionTerms.length > 0
+    ? sectionTerms.map(function (term) {
+      return term.jp + "（" + term.en + " / " + term.zh + "）";
+    }).join("、")
+    : section.jpKeywords.join("、");
   const hintsText = section.examHints.join("、");
 
   let htmlText = "";

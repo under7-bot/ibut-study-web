@@ -1564,46 +1564,6 @@ const terms = [
     "hint": "相手に電話しない"
   },
   {
-    "id": "term-user-authentication",
-    "sectionId": "sec-7-11",
-    "chapter": "第7章 インターネットセキュリティ",
-    "jp": "ユーザー認証",
-    "reading": "ユーザーにんしょう",
-    "zh": "用户认证",
-    "en": "user authentication",
-    "hint": "本人確認"
-  },
-  {
-    "id": "term-biometric-authentication",
-    "sectionId": "sec-7-11",
-    "chapter": "第7章 インターネットセキュリティ",
-    "jp": "生体認証",
-    "reading": "せいたいにんしょう",
-    "zh": "生物认证",
-    "en": "biometric authentication",
-    "hint": "指紋、顔、虹彩"
-  },
-  {
-    "id": "term-encryption",
-    "sectionId": "sec-7-11",
-    "chapter": "第7章 インターネットセキュリティ",
-    "jp": "暗号化",
-    "reading": "あんごうか",
-    "zh": "加密",
-    "en": "encryption",
-    "hint": "読めない形にする"
-  },
-  {
-    "id": "term-digital-certificate",
-    "sectionId": "sec-7-11",
-    "chapter": "第7章 インターネットセキュリティ",
-    "jp": "電子証明書",
-    "reading": "でんししょうめいしょ",
-    "zh": "电子证书",
-    "en": "digital certificate",
-    "hint": "本物のサイトを証明"
-  },
-  {
     "id": "term-7-user-auth",
     "sectionId": "sec-7-1",
     "chapter": "第7章 インターネットセキュリティ",
