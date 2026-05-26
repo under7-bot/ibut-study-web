@@ -392,18 +392,26 @@ function renderSectionDetail(section) {
   htmlText += '<p class="lesson-text"><strong>所属章节：</strong>' + section.chapter + '</p>';
   htmlText += '<p class="lesson-text"><strong>学习目标：</strong>' + section.goal + '</p>';
   htmlText += '<p class="lesson-text"><strong>日文关键词：</strong><span class="keyword">' + keywordsText + '</span></p>';
-  htmlText += '<p class="lesson-text"><strong>中文解释：</strong>' + section.explanation + '</p>';
+  htmlText += '<div class="bilingual-explanation" aria-label="日文原文和中文解释对照">';
+  htmlText += '<section class="bilingual-panel">';
+  htmlText += '<h4>日文原文</h4>';
+  htmlText += '<p>' + (section.jpOriginal || "この小節の日本語原文は準備中です。") + '</p>';
+  htmlText += '</section>';
+  htmlText += '<section class="bilingual-panel bilingual-panel-cn">';
+  htmlText += '<h4>中文解释</h4>';
+  htmlText += '<p>' + section.explanation + '</p>';
+  htmlText += '</section>';
+  htmlText += '</div>';
   htmlText += '<p class="lesson-text"><strong>典型场景：</strong>' + section.scenario + '</p>';
   htmlText += '<p class="lesson-text"><strong>考试题眼：</strong><span class="exam-point">' + hintsText + '</span></p>';
   htmlText += '<p class="lesson-text"><strong>易混淆点：</strong>' + section.confusion + '</p>';
-  htmlText += '<p class="lesson-text"><strong>小结口诀：</strong><span class="memory-tip">' + section.summary + '</span></p>';
+  htmlText += '<p class="lesson-text"><strong>速记总结：</strong><span class="memory-tip">' + section.summary + '</span></p>';
   htmlText += '<button class="answer-button" type="button" id="readButton" data-section-id="' + section.id + '">' + buttonText + '</button>';
   htmlText += '</article>';
 
   contentArea.innerHTML = htmlText;
 }
 
-// 关键词表渲染：根据当前 sectionId 显示对应术语。
 function renderTerms(sectionId) {
   if (!termsArea) {
     return;
@@ -416,16 +424,16 @@ function renderTerms(sectionId) {
   let htmlText = '<h2 id="terms-title">关键词中日英对照</h2>';
 
   if (sectionTerms.length === 0) {
-    htmlText += '<p>当前章节暂无关键词数据</p>';
+    htmlText += '<p>当前章节暂无关键词数据。</p>';
     termsArea.innerHTML = htmlText;
     return;
   }
 
   htmlText += '<table class="terms-table" id="terms-table">';
   htmlText += '<thead><tr>';
-  htmlText += '<th scope="col">日本語</th>';
-  htmlText += '<th scope="col">読み方</th>';
-  htmlText += '<th scope="col">中文</th>';
+  htmlText += '<th scope="col">日语术语</th>';
+  htmlText += '<th scope="col">读法</th>';
+  htmlText += '<th scope="col">中文解释</th>';
   htmlText += '<th scope="col">English</th>';
   htmlText += '<th scope="col">考试题眼</th>';
   htmlText += '</tr></thead>';
@@ -445,7 +453,6 @@ function renderTerms(sectionId) {
   termsArea.innerHTML = htmlText;
 }
 
-// 题眼速查渲染：把题眼数据生成表格。
 function renderExamHints() {
   if (!examHintsArea) {
     return;
@@ -460,7 +467,8 @@ function renderExamHints() {
     return;
   }
 
-  htmlText += '<table class="terms-table">';
+  htmlText += '<div class="exam-hints-table-scroll">';
+  htmlText += '<table class="terms-table exam-hints-table">';
   htmlText += '<thead><tr>';
   htmlText += '<th scope="col">题目中出现</th>';
   htmlText += '<th scope="col">立刻想到</th>';
@@ -476,7 +484,7 @@ function renderExamHints() {
     htmlText += '</tr>';
   });
 
-  htmlText += '</tbody></table>';
+  htmlText += '</tbody></table></div>';
   examHintsArea.innerHTML = htmlText;
 }
 

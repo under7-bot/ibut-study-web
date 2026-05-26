@@ -264,6 +264,35 @@ input {
   color: #374151;
 }
 
+.bilingual-explanation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.bilingual-panel {
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.bilingual-panel-cn {
+  background: #fffdf7;
+}
+
+.bilingual-panel h4 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.bilingual-panel p {
+  margin: 0;
+  line-height: 1.8;
+}
+
 .keyword,
 .exam-point,
 .memory-tip {
@@ -300,6 +329,15 @@ input {
 
 .terms-table td {
   background: #ffffff;
+}
+
+.exam-hints-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.exam-hints-table {
+  min-width: 760px;
 }
 
 /* Quiz 样式：题目卡片清晰，预留答案展开样式 */
@@ -429,5 +467,47 @@ input {
 
   .terms-section {
     max-width: 100%;
+  }
+
+  .bilingual-explanation {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-hints-table-scroll {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .exam-hints-table {
+    min-width: 720px;
+    table-layout: fixed;
+  }
+
+  .exam-hints-table th:first-child,
+  .exam-hints-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    width: 168px;
+    min-width: 168px;
+    max-width: 168px;
+    box-shadow: 1px 0 0 #e5e7eb;
+  }
+
+  .exam-hints-table th:first-child {
+    z-index: 3;
+  }
+
+  .exam-hints-table th:nth-child(2),
+  .exam-hints-table td:nth-child(2) {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .exam-hints-table th:nth-child(3),
+  .exam-hints-table td:nth-child(3) {
+    width: 332px;
+    min-width: 332px;
   }
 }
